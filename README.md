@@ -74,8 +74,8 @@ sudo cp install/msh_bridge.py install/config.yaml install/direwolf.conf /opt/msh
 sudo cp install/msh-bridge.service install/direwolf.service /etc/systemd/system/
 
 # Set permissions
-sudo chown -R pi:pi /opt/msh-bridge
-sudo chown -R pi:pi /var/log/direwolf
+sudo chown -R {user}:{user} /opt/msh-bridge
+sudo chown -R {user}:{group} /var/log/direwolf
 
 # Enable service
 sudo systemctl daemon-reload
@@ -101,7 +101,7 @@ ax25:
   kiss_host: 127.0.0.1     # Direwolf KISS host
   kiss_port: 8001          # Direwolf KISS port
   source_callsign: N0CALL-1  # YOUR callsign with SSID
-  dest_callsign: APMESH-0  # Destination callsign
+  dest_callsign: APMESH  # Destination callsign
 
 loop_prevention:
   enabled: true            # Enable loop prevention
@@ -125,17 +125,16 @@ Edit `/opt/msh-bridge/direwolf.conf`:
 
 ```conf
 # Set your audio device (example: card 1, device 0)
-ADEVICE plughw:1,0
+ADEVICE plughw:0,0 plughw:0,0
 
-# Configure PTT for your interface
-# For GPIO (example: GPIO 17):
-PTT GPIO 17
+# Configure PTT for your CM108 Sound card
+PTT CM108 /dev/hidraw0
 
 # For serial RTS:
 # PTT /dev/ttyUSB0 RTS
 ```
 
-Adjust transmit levels and timing for your radio:
+Adjust transmit timing for your radio:
 
 ```conf
 TXDELAY 250  # PTT to audio delay (ms) - CDM typically needs 200-300
@@ -502,6 +501,7 @@ For issues and questions:
 ---
 
 **73 de [YOUR CALL]**
+
 
 
 
