@@ -500,7 +500,8 @@ For issues and questions:
 
 ---
 
-**73 de [YOUR CALL]**
+**73 de N5ZR Michael**
+
 
 
 
