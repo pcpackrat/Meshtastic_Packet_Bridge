@@ -19,9 +19,9 @@ RestartSec=5
 MemoryMax=256M
 CPUQuota=50%
 
-# Logging
-StandardOutput=journal
-StandardError=journal
+# Logging to /tmp (tmpfs in RAM) to reduce SD card wear
+StandardOutput=append:/tmp/direwolf.log
+StandardError=append:/tmp/direwolf.log
 SyslogIdentifier=direwolf
 
 [Install]

@@ -21,9 +21,9 @@ RestartSec=10
 MemoryMax=256M
 CPUQuota=50%
 
-# Logging
-StandardOutput=journal
-StandardError=journal
+# Logging to /tmp (tmpfs in RAM) to reduce SD card wear
+StandardOutput=append:/tmp/msh-bridge.log
+StandardError=append:/tmp/msh-bridge.log
 SyslogIdentifier=msh-bridge
 
 # Security hardening (optional)
