@@ -142,18 +142,7 @@ TXDELAY 250  # PTT to audio delay (ms) - CDM typically needs 200-300
 TXTAIL 50    # Audio to PTT release (ms)
 ```
 
-### 3. Configure Mosquitto (Optional)
-
-For local broker, edit `/etc/mosquitto/mosquitto.conf`:
-
-```conf
-listener 1883
-allow_anonymous true
-
-# Or with authentication:
-# password_file /etc/mosquitto/pwfile
-# allow_anonymous false
-```
+### 3. Configure Mosquitto
 
 Create password file if using authentication:
 
@@ -513,6 +502,7 @@ For issues and questions:
 ---
 
 **73 de [YOUR CALL]**
+
 
 
 
