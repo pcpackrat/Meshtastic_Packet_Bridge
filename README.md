@@ -151,14 +151,14 @@ listener 1883
 allow_anonymous true
 
 # Or with authentication:
-# password_file /etc/mosquitto/passwd
+# password_file /etc/mosquitto/pwfile
 # allow_anonymous false
 ```
 
 Create password file if using authentication:
 
 ```bash
-sudo mosquitto_passwd -c /etc/mosquitto/passwd meshnerds
+sudo mosquitto_passwd -c /etc/mosquitto/pwfile meshnerds
 sudo systemctl restart mosquitto
 ```
 
@@ -513,5 +513,6 @@ For issues and questions:
 ---
 
 **73 de [YOUR CALL]**
+
 
 
