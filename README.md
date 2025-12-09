@@ -13,23 +13,6 @@ A robust bidirectional bridge between Meshtastic (MQTT) and AX.25 Packet Radio u
 - ✅ **FCC compliant**: No encryption over RF, callsigns in the clear
 - ✅ **Comprehensive logging**: INFO and DEBUG levels for troubleshooting
 
-## Architecture
-
-```mermaid
-graph LR
-    A[Meshtastic Device] -->|MQTT| B[Mosquitto Broker]
-    B -->|Subscribe| C[msh_bridge.py]
-    C -->|KISS TCP| D[Direwolf]
-    D -->|Audio| E[RIM-MAXTRAC]
-    E -->|RF| F[Motorola CDM Radio]
-    F -->|RF| G[Remote CDM Radio]
-    G -->|Audio| H[Remote RIM-MAXTRAC]
-    H -->|KISS TCP| I[Remote Direwolf]
-    I -->|Publish| J[Remote msh_bridge.py]
-    J -->|MQTT| K[Remote Mosquitto]
-    K -->|MQTT| L[Remote Meshtastic Device]
-```
-
 ## Hardware Requirements
 
 - **Radio**: Motorola CDM series (CDM1250, CDM1550, etc.)
@@ -530,3 +513,4 @@ For issues and questions:
 ---
 
 **73 de [YOUR CALL]**
+
