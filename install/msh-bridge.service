@@ -1,0 +1,37 @@
+[Unit]
+Description=Meshtastic Packet Radio Bridge
+Documentation=https://github.com/yourusername/msh-bridge
+After=network-online.target mosquitto.service direwolf.service
+Wants=network-online.target
+Requires=direwolf.service
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/opt/msh-bridge
+Environment="PATH=/opt/msh-bridge/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/opt/msh-bridge/venv/bin/python3 /opt/msh-bridge/msh_bridge.py /opt/msh-bridge/config.yaml
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Resource limits
+MemoryMax=256M
+CPUQuota=50%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=msh-bridge
+
+# Security hardening (optional)
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/msh-bridge
+
+[Install]
+WantedBy=multi-user.target

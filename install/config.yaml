@@ -1,0 +1,36 @@
+# Meshtastic <-> Packet Radio Bridge Configuration
+
+mqtt:
+  # MQTT broker connection settings
+  host: 127.0.0.1
+  port: 1883
+  username: meshnerds
+  password: TacosAreTasty69
+  tls: false
+  
+  # Root topic to subscribe to (will subscribe to root_topic/#)
+  root_topic: msh/bridge
+
+ax25:
+  # Direwolf KISS TCP connection
+  kiss_host: 127.0.0.1
+  kiss_port: 8001
+  
+  # AX.25 addressing
+  # Source callsign should be YOUR amateur radio callsign with SSID
+  # IMPORTANT: Change BRIDGE-10 to your licensed amateur radio callsign!
+  source_callsign: BRIDGE-10
+  
+  # Destination identifier for bridge packets (APMESH = Meshtastic)
+  # This is a generic identifier, not a callsign, so no SSID is needed
+  dest_callsign: APMESH
+
+loop_prevention:
+  # Enable loop prevention to avoid RF->MQTT->RF loops
+  enabled: true
+  
+  # Time to cache message digests (seconds)
+  cache_ttl_seconds: 60
+
+# Logging level: DEBUG, INFO, WARNING, ERROR
+logging_level: INFO

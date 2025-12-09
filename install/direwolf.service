@@ -1,0 +1,28 @@
+[Unit]
+Description=Direwolf KISS TNC for Meshtastic Bridge
+Documentation=https://github.com/wb2osz/direwolf
+After=sound.target
+Before=msh-bridge.service
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/opt/msh-bridge
+ExecStart=/usr/bin/direwolf -c /opt/msh-bridge/direwolf.conf -t 0
+
+# Restart policy
+Restart=always
+RestartSec=5
+
+# Resource limits
+MemoryMax=256M
+CPUQuota=50%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=direwolf
+
+[Install]
+WantedBy=multi-user.target
