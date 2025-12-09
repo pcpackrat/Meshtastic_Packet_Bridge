@@ -36,7 +36,7 @@ A robust bidirectional bridge between Meshtastic (MQTT) and AX.25 Packet Radio u
 
 ```bash
 # Clone or download the repository
-cd /path/to/msh-bridge
+cd /path/to/Meshtastic_Packet_Bridge
 
 # Run installer from the install folder (requires root)
 sudo bash install/install.sh
@@ -513,4 +513,5 @@ For issues and questions:
 ---
 
 **73 de [YOUR CALL]**
+
 
